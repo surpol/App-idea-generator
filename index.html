@@ -51,11 +51,13 @@
 <section id = "dual-button">
 
 	<div style= "text-align: center;">
-		<button type="button"><b>Get Idea</b></button>
+		<button id="get_idea"><b>Get Idea</b></button>
 	</div>
 
 	<div style= "text-align: center;">
-		<button type="button"><b>Give Idea</b></button>
+		<button id="give" onclick="idea_input()"><b>Give Idea</b></button>
+		<p id="input"></p>
+
 	</div>
 
 </section>
@@ -70,5 +72,10 @@
 		font-family: "Courier New";
 	}
 	</style>
+	<script>
+	function idea_input(){
+		document.getElementById("input").innerHTML="Enter Idea:";
+	} 
+	</script>
 
 </html>
