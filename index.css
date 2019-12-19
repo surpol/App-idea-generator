@@ -5,6 +5,45 @@
     width:100%;
  	}
 }
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+.fa-instagram {
+  background: #3f729b;
+  color: white;
+}
+
+/* aligning icons to left side*/
+.leftside {
+	position: absolute;
+	top: 25%;
+
+}
 
 #dual-button div{
 
