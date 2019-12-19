@@ -60,7 +60,14 @@
 	text-align: center;
 
 }
+.button2{
+	font-size: 10px;
+	background-color: #008CBA;
+	color: white;
+	padding: 15px 32px;
 
+
+}
 .hide{
   display:none;
 }
