@@ -5,19 +5,14 @@
     width:100%;
  	}
 }
-#idea{
-	padding: 20px 10px 15px 215px;
-}
 
-#giving_pic{
-	padding: 20px 10px 15px 120px;
-}
 #dual-button div{
 
-	float: left;
+	
 	background-color: #ffffff;
-	margin: 100px;
-	padding-left: 240px;
+	margin: 115px;
 	font-family: "Courier New";
+	text-align: center;
+
 }
 
