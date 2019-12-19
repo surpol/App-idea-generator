@@ -1,14 +1,17 @@
-<style>
-		#idea{
-			padding: 20px 10px 15px 215px;
-		}
-	</style>
-<style>
-<style>
-	#giving_pic{
-		padding: 20px 10px 15px 120px;
-	}
-</style>
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+ 	}
+}
+#idea{
+	padding: 20px 10px 15px 215px;
+}
+
+#giving_pic{
+	padding: 20px 10px 15px 120px;
+}
 #dual-button div{
 
 	float: left;
@@ -17,4 +20,4 @@
 	margin-left: 1.5em;
 	font-family: "Courier New";
 }
-</style>
+
