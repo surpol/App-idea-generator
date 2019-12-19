@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>myWare</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+	<link rel = "stylesheet" type = "text/css" href = "index.css" />
 </head>
 
 <body>
@@ -20,38 +21,28 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <div class="row">
-	<div class="col-md-6">
-		<img src="light.jpeg"  alt="light" width="200" height= "200">
+	<div class="col-sm-6">
+		<img src="light.jpeg"  alt="light" width="200" height= "200" class="responsive">
 	</div>
 
-	<div class="col-md-6">
-		<img src="gift1.jpg"  alt="light" width="200" height= "200">
+	<div class="col-sm-6">
+		<img src="gift1.jpg"  alt="light" width="200" height= "200" class="responsive">
 	</div>
 </div>
 
 
 <section id = "dual-button">
+	<div class="row">
+		<div class="col-sm-6" style= "text-align: center;">
+			<button type="button"><b>Get Idea</b></button>
+		</div>
 
-	<div style= "text-align: center;">
-		<button type="button"><b>Get Idea</b></button>
+		<div class="col-sm-6" style= "text-align: center;">
+			<button type="button"><b>Give Idea</b></button>
+		</div>
 	</div>
-
-	<div style= "text-align: center;">
-		<button type="button"><b>Give Idea</b></button>
-	</div>
-
 </section>
 
-	<style>
-	#dual-button div{
-
-		float: left;
-		background-color: #ffffff;
-		width: calc(49% - 1.5em);
-		margin-left: 1.5em;
-		font-family: "Courier New";
-	}
-	</style>
 
 
 </body>
