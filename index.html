@@ -38,10 +38,20 @@
 		</div>
 
 		<div style= "text-align: center;">
-			<button type="button"><b>Give Idea</b></button>
+			<button type="button" onclick="onButtonClick()"><b>Give Idea</b></button>
+			<br>
+			<br>
+			<input class="hide" type="text" id="ideaInput" value="Enter Idea Here" />
 		</div>
 	</div>
 </section>
+
+	
+	<script>
+	function onButtonClick(){
+	  document.getElementById('ideaInput').className="show";
+	}
+	</script>
 
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
