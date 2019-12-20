@@ -84,3 +84,35 @@
 	color: white;
 }
 
+.footer{
+	width: 100%;
+	padding: 100px 0px;
+	background-color: #000000;
+	position:fixed;
+	bottom:0px;
+}
+
+footer nav{
+	float: right;
+}
+footer nav ul {
+}
+footer nav ul li{
+	display: inline-block;
+	margin-left: 20px;
+	list-style: none;
+}
+
+footer nav ul li a{
+	font-family: Lato;
+	font-weight: 400;
+	font-size: 14px
+	color: #ffffff;
+}
+
+#copyright{
+	text-align: center;
+	width: 100%;
+	bottom: 0px;
+}
+

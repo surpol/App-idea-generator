@@ -81,4 +81,35 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
 </body>
+
+
+
+<script>
+function openForm() {
+	document.getElementById('name').className="show";
+	document.getElementById('email').className="show";
+	document.getElementById('feedback').className="show";
+	document.getElementById('button3').className="show";
+
+}
+
+</script>
+<footer class="footer">
+	<button class="open-button" onclick="openForm()">Contact</button>
+
+	<div class="form-popup" id="myForm">
+  
+		<input class="hide" type="Name" placeholder="Enter Name" id="name" required>
+
+		<input class="hide" type="Email" placeholder="Enter Email" id="email" required>
+
+		<input class="hide" type="text" id="feedback" value="" height="420px"  />
+
+		<button class="hide" type="submit" class="btn" id="button3">Send</button>
+
+	</div>
+	
+	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
+
+</footer>
 </html>
