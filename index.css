@@ -87,20 +87,14 @@
 }
 
 .footer{
-	width: 100%;
-	padding: 100px 0px;
 	background-color: black;
-	position: relative;
-	bottom:0px;
+	position: absolute;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	padding: 1rem;
 }
 
-footer {
-	float: right;
-	height: 40px;
-	border-radius: 0px;
-}
-footer nav ul {
-}
 footer nav ul li{
 	display: inline-block;
 	margin-left: 20px;
