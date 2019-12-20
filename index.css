@@ -87,7 +87,6 @@
 }
 
 .footer{
-<<<<<<< HEAD
 	width: 100%;
 	padding: 100px 0px;
 	background-color: #add8e6;
@@ -103,17 +102,14 @@
 	padding: 100px 0px;
 	background-color: #add8e6;
 	position:relative;
-=======
->>>>>>> f52057d7243b9ab688d94cffc4d0040fd93bea96
 	background-color: black;
 	position: absolute;
   	right: 0;
   	bottom: 0;
   	left: 0;
-  	padding: 1rem;
+  	padding: 5rem;
 }
 
-<<<<<<< HEAD
 footer {
 	float: right;
 	height: 40px;
@@ -129,7 +125,6 @@ footer nav ul li{
 	list-style: none;
 }
 
->>>>>>> f52057d7243b9ab688d94cffc4d0040fd93bea96
 footer nav ul li a{
 	color: white;
 	font-family: "Courier New";
