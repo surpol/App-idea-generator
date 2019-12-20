@@ -89,8 +89,8 @@
 .footer{
 	width: 100%;
 	padding: 100px 0px;
-	background-color: #add8e6;
-	position:relative;
+	background-color: black;
+	position: relative;
 	bottom:0px;
 }
 
@@ -98,7 +98,6 @@ footer {
 	float: right;
 	height: 40px;
 	border-radius: 0px;
-	border: 2px solid black;
 }
 footer nav ul {
 }
@@ -120,6 +119,7 @@ footer nav ul li a{
 	color: white;
 	font-family: "Courier New";
 	font-weight: bold;
+	padding-bottom: 20px;
 }
 
 .open-button{
