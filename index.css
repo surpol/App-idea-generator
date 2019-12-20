@@ -95,13 +95,13 @@
   	padding: 1rem;
 }
 
-footer nav ul li{
+.footer nav ul li{
 	display: inline-block;
 	margin-left: 20px;
 	list-style: none;
 }
 
-footer nav ul li a{
+.footer nav ul li a{
 	font-family: Lato;
 	font-weight: 400;
 	font-size: 14px
