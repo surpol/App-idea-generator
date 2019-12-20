@@ -11,6 +11,7 @@
   width: 50px;
   text-align: center;
   text-decoration: none;
+
 }
 
 /* Add a hover effect if you want */
@@ -43,6 +44,7 @@
 	position: absolute;
 	top: 25%;
 	text-align: left;
+	padding-top: 120px;
 }
 
 .button {
@@ -87,13 +89,16 @@
 .footer{
 	width: 100%;
 	padding: 100px 0px;
-	background-color: #000000;
-	position:fixed;
+	background-color: #add8e6;
+	position:relative;
 	bottom:0px;
 }
 
-footer nav{
+footer {
 	float: right;
+	height: 40px;
+	border-radius: 0px;
+	border: 2px solid black;
 }
 footer nav ul {
 }
@@ -107,12 +112,29 @@ footer nav ul li a{
 	font-family: Lato;
 	font-weight: 400;
 	font-size: 14px
-	color: #ffffff;
+	color: black;
+}
+
+.contactButton {
+	text-align: center;
+	color: white;
+	font-family: "Courier New";
+	font-weight: bold;
+}
+
+.open-button{
+	font-weight: bold;
+}
+
+.form-popup{
+	text-align: center;
 }
 
 #copyright{
 	text-align: center;
 	width: 100%;
 	bottom: 0px;
+	font-family: "Courier New";
+	font-weight: bold;
 }
 
