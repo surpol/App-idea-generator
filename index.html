@@ -72,14 +72,28 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.6.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyApbpDVs_AK8P7JWk34dayYZR84agdHEk4",
+    authDomain: "myware-f1442.firebaseapp.com",
+    databaseURL: "https://myware-f1442.firebaseio.com",
+    projectId: "myware-f1442",
+    storageBucket: "myware-f1442.appspot.com",
+    messagingSenderId: "841014183410",
+    appId: "1:841014183410:web:1c2c62be29048e64fad76b",
+    measurementId: "G-1GXJKW94Y8"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </body>
 
 
