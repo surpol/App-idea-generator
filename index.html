@@ -90,7 +90,7 @@ function openForm() {
 	document.getElementById('email').className="show";
 	document.getElementById('feedback').className="show";
 	document.getElementById('button3').className="show";
-
+	document.getElementById('button4').className="show";
 }
 
 </script>
@@ -100,7 +100,9 @@ function openForm() {
 	<div class="contactButton">
 		<button class="open-button" onclick="openForm()">Contact</button>
 	</div>
-	<div class="form-popup">
+	
+	<form class="form-popup">
+
 		<input class="hide" type="Name" placeholder="Enter Name" id="name" required>
 
 		<input class="hide" type="Email" placeholder="Your Email" id="email" required>
@@ -108,7 +110,10 @@ function openForm() {
 		<input class="hide" type="text" placeholder="Feedback?" id="feedback" value=""  />
 
 		<button class="hide" type="submit" class="btn" id="button3">Send</button>
-	</div>
+		
+		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
+		
+	</form>
 
 	</div>
 	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
