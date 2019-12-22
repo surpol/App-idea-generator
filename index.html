@@ -30,7 +30,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 <!-- social media icons -->
 <div class="leftside">
 	<ul>
-		<li> <a href="https://www.facebook.com/sharer.php" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+		<li> <a href="http://facebook.com" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
 		<li> <a href="http://twitter.com" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
 		<li> <a href="http://instagram.com" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
 		<li> <a href="http://reddit.com" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a></li>
@@ -48,8 +48,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 <section id = "dual-button">
 	<div class="column">
 		<div style= "text-align: center;">
-
-			<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
+			<button class="button"><b>Get Idea</b></button>
 		</div>
 
 		<div style= "text-align: center;">
@@ -62,7 +61,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		</div>
 	</div>
 </section>
-	<p id="appIdea" value="Reset"></p>
+
 	
 	<script>
 	function onButtonClick(){
@@ -70,60 +69,16 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 	  document.getElementById('button2').className="show";
 	}
 	</script>
-	<script >
-	
-		function retrieve(){
-		
-			const appIdea = document.querySelector("#appIdea");
-			appIdea.innerHTML = null;
-
-			var counter = Math.floor(Math.random() * 41); //number of docs in database
-			var docRef = db.collection("myIdeas").doc(counter.toString());
-
-			docRef.get().then(function(doc) {
-    			if (doc.exists) {
-    				appIdea.innerHTML = null;
-
-        			console.log("counter " + counter);
-        			appIdea.innerHTML += "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description+ "</h3></div>";
-    			} else {
-        			// doc.data() will be undefined in this case
-        			console.log("No such document!");
-    			}
-			}).catch(function(error) {
-    				console.log("Error getting document:", error);
-			});
-			// var counter = Math.floor(Math.random() * 27) + 0; //27 is number of docs in database
-
-			// db.collection("Ideas").get().then(function(querySnapshot) {
-			// 	querySnapshot.forEach(function(doc) {
-			// 	// doc.data() is never undefined for query doc snapshots
-			// 	if (doc.data().count == counter){
-			// 		//console.log(counter);					
-			// 		appIdea.innerHTML += "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br>" + doc.data().Description+ "</h3></div>";
-			// 	}
-			// 	});
-			// });
-		}
-	</script>
-	
 
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-
-  <!-- Add Firebase products that you want to use -->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
 
 <script>
-
   // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyApbpDVs_AK8P7JWk34dayYZR84agdHEk4",
@@ -136,13 +91,11 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
     measurementId: "G-1GXJKW94Y8"
   };
   // Initialize Firebase
-  var app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore(app);   
-
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 </script>
-   
-
 </body>
+
 
 
 <script>
@@ -162,10 +115,10 @@ function openForm() {
 		<button class="open-button" onclick="openForm()">Contact</button>
 	</div>
 	
-	<form class="form-popup" action="feedbackSubmission.php" method="post">
-		<input class="hide" type="Name" name="name" placeholder="Enter Name" id="name" required>
-		<input class="hide" type="Email" name="email" placeholder="Your Email" id="email" required>
-		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""  />
+	<form class="form-popup" method="post" action="feedbackSubmission.php">
+		<input class="hide" type="Name" placeholder="Enter Name" id="name" required>
+		<input class="hide" type="Email" placeholder="Your Email" id="email" required>
+		<input class="hide" type="text" placeholder="Feedback?" id="feedback" value=""  />
 		<button class="hide" type="submit" name="send" class="btn" id="button3">Send</button>
 		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 	</form>
