@@ -115,10 +115,10 @@ function openForm() {
 		<button class="open-button" onclick="openForm()">Contact</button>
 	</div>
 	
-	<form class="form-popup" method="post" action="feedbackSubmission.php">
-		<input class="hide" type="Name" placeholder="Enter Name" id="name" required>
-		<input class="hide" type="Email" placeholder="Your Email" id="email" required>
-		<input class="hide" type="text" placeholder="Feedback?" id="feedback" value=""  />
+	<form class="form-popup" action="feedbackSubmission.php" method="post">
+		<input class="hide" type="Name" name="name" placeholder="Enter Name" id="name" required>
+		<input class="hide" type="Email" name="email" placeholder="Your Email" id="email" required>
+		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""  />
 		<button class="hide" type="submit" name="send" class="btn" id="button3">Send</button>
 		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 	</form>
