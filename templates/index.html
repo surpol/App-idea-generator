@@ -11,9 +11,12 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
 	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
+<<<<<<< HEAD:templates/index.html
 
 
 	
+=======
+>>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
 </head>
 
 
@@ -31,7 +34,11 @@
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 
 </script>
+<<<<<<< HEAD:templates/index.html
 		<p id="appIdea" value="Reset"></p>
+=======
+	<p id="appIdea" value="Reset"></p>
+>>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
 
 <!-- social media icons -->
 <div class="leftside">
@@ -63,8 +70,10 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			
 			<br>
 			<br>
-			<input class="hide" type="text" placeholder="Enter idea here..." id="ideaInput" value="" />
+		<form action="/idea" method="POST">
+			<input class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" />
 			<button class="hide" id="button2"><b>Submit</b> </button>
+		</form>
 		</div>
 	</div>
 </section>
@@ -169,14 +178,24 @@ function openForm() {
 	</div>
 	
 	<form class="form-popup" action="/send" method="POST">
+<<<<<<< HEAD:templates/index.html
 		<input class="hide" name="name" type="name" placeholder="Enter Name" id="name" required>
 		<input class="hide" name="email" type="email" placeholder="Your Email" id="email" required>
 		<input class="hide" name="message" type="message" placeholder="Feedback?" id="feedback" value=""  />
 		<button class="hide" type="submit" name="submit" class="btn" id="button3">Send</button>
+=======
+		<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
+		<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
+		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
+		<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
+>>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
 		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 	</form>
 
-	</div>
 	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
+<<<<<<< HEAD:templates/index.html
 </div>
+=======
+</footer>
+>>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
 </html>
