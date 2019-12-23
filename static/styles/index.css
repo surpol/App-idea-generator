@@ -46,7 +46,9 @@
 	text-align: left;
 	padding-top: 120px;
 }
-
+.appIdea{
+	font-size: 10;	
+}
 .button {
 	background-color: #add8e6;
 	color: black;
@@ -60,6 +62,7 @@
 	margin: 115px;
 	font-family: "Courier New";
 	text-align: center;
+
 
 }
 .button2{

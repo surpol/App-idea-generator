@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,11 @@
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
 	</script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
+
+
+	
 </head>
 
 
@@ -26,6 +31,7 @@
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 
 </script>
+		<p id="appIdea" value="Reset"></p>
 
 <!-- social media icons -->
 <div class="leftside">
@@ -62,7 +68,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		</div>
 	</div>
 </section>
-	<p id="appIdea" value="Reset"></p>
 	
 	<script>
 	function onButtonClick(){
@@ -70,6 +75,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 	  document.getElementById('button2').className="show";
 	}
 	</script>
+
 	<script >
 	
 		function retrieve(){
@@ -124,7 +130,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 
 <script>
 
-  // Your web app's Firebase configuration
+  // Your web app's Firebase configurationA
   var firebaseConfig = {
     apiKey: "AIzaSyApbpDVs_AK8P7JWk34dayYZR84agdHEk4",
     authDomain: "myware-f1442.firebaseapp.com",
@@ -162,16 +168,15 @@ function openForm() {
 		<button class="open-button" onclick="openForm()">Contact</button>
 	</div>
 	
-	<form class="form-popup" method="post" action="feedbackSubmission.php">
-		<input class="hide" type="Name" placeholder="Enter Name" id="name" required>
-		<input class="hide" type="Email" placeholder="Your Email" id="email" required>
-		<input class="hide" type="text" placeholder="Feedback?" id="feedback" value=""  />
-		<button class="hide" type="submit" name="send" class="btn" id="button3">Send</button>
+	<form class="form-popup" action="/send" method="POST">
+		<input class="hide" name="name" type="name" placeholder="Enter Name" id="name" required>
+		<input class="hide" name="email" type="email" placeholder="Your Email" id="email" required>
+		<input class="hide" name="message" type="message" placeholder="Feedback?" id="feedback" value=""  />
+		<button class="hide" type="submit" name="submit" class="btn" id="button3">Send</button>
 		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 	</form>
 
 	</div>
 	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
-	<footer></footer>
 </div>
 </html>
