@@ -1,23 +1,17 @@
   <!DOCTYPE html>
 <html>
-  <head>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>myWare</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel = "stylesheet" type = "text/css" href = "index.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
-	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
-<<<<<<< HEAD:templates/index.html
-
-
-	
-=======
->>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
-</head>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>myWare</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel = "stylesheet" type = "text/css" href = "index.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+		<script src="{{url_for('static', filename='typed.min.js')}}"></script>
+	</head>
 
 
 <body>
@@ -34,11 +28,8 @@
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 
 </script>
-<<<<<<< HEAD:templates/index.html
 		<p id="appIdea" value="Reset"></p>
-=======
 	<p id="appIdea" value="Reset"></p>
->>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
 
 <!-- social media icons -->
 <div class="leftside">
@@ -61,25 +52,31 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 <section id = "dual-button">
 	<div class="column">
 		<div style= "text-align: center;">
-
 			<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
 		</div>
 
 		<div style= "text-align: center;">
 			<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
-			
 			<br>
 			<br>
-		<form action="/idea" method="POST">
-			<input class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" />
-			<button class="hide" id="button2"><b>Submit</b> </button>
-		</form>
+				<form class="form-popup" action="/idea" method="POST">
+						<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
+						<br>
+						<br>
+						<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
+						<br>
+						<br>
+						<button class="hide" id="button2"><b>Submit</b> </button>
+					</div>
+				</form>
 		</div>
 	</div>
-</section>
+<!-- </form>
+ --></section>
 	
 	<script>
 	function onButtonClick(){
+	  document.getElementById('appName').className="show";
 	  document.getElementById('ideaInput').className="show";
 	  document.getElementById('button2').className="show";
 	}
@@ -157,9 +154,28 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </script>
    
 
+
+
+
 </body>
 
+<footer class="footer">
+	<div class="contactButton">
+		<button class="open-button" onclick="openForm()">Contact</button>
+	</div>
+	
+	<form class="form-popup" action="/send" method="POST">
+		<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
+		<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
+		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
+		<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
+		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
+	</form>
 
+	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
+</div>
+
+</footer>
 <script>
 function openForm() {
 	document.getElementById('name').className="show";
@@ -170,32 +186,4 @@ function openForm() {
 }
 
 </script>
-
-<footer class="footer">
-
-	<div class="contactButton">
-		<button class="open-button" onclick="openForm()">Contact</button>
-	</div>
-	
-	<form class="form-popup" action="/send" method="POST">
-<<<<<<< HEAD:templates/index.html
-		<input class="hide" name="name" type="name" placeholder="Enter Name" id="name" required>
-		<input class="hide" name="email" type="email" placeholder="Your Email" id="email" required>
-		<input class="hide" name="message" type="message" placeholder="Feedback?" id="feedback" value=""  />
-		<button class="hide" type="submit" name="submit" class="btn" id="button3">Send</button>
-=======
-		<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
-		<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
-		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-		<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
->>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
-		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
-	</form>
-
-	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
-<<<<<<< HEAD:templates/index.html
-</div>
-=======
-</footer>
->>>>>>> ff284c747d89dd36561612561e8bf276dd8b82b4:templates/index.html
 </html>
