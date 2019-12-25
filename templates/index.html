@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,19 +15,13 @@
 
 
 <body>
-
+<!-- 
 <div id="container">
-<div id="main">
+<div id="main"> -->
 <div id="index-height" class="jumbotron text-center">
 	<h1><span class="typing"></span></h1>
 </div>
-<style type="text/css">
-	#index-height{
-	min-height: 220px;
-    max-height: 664px;
-    background-color: #add8e6;
-	}
-</style>
+
 
 <!-- animated header -->
 <script src="jquery-3.4.1.min.js"></script>
@@ -35,7 +29,6 @@
 <script type="text/javascript">
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 </script>
-	<p id="appIdea" value="Reset"></p>
 <!-- 	<p id="appIdea" value="Reset"></p>
  -->
 <!-- social media icons -->
@@ -54,15 +47,25 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		margin:0px;
 	}
 </style>
+	<br>
+	<br>
+	<p id="appIdea" value="Reset"></p>
+	<br>
+	<br>
 
 <!-- buttons -->
 <section id = "dual-button">
-	<div id="ideaButtons" style= "text-align:center;">
-		<button id="butt" class="button" onclick="retrieve()"><b>Get Idea</b></button>
+	<div style= "text-align:center;">
+		<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-	<div id="ideaButtons" style= "text-align: center;">
-		<button id="butt" class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
+	<div style= "text-align: center;">
+		<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
 		<br>
 		<br>
 			<form class="form-popup" action="/idea" method="POST">
@@ -72,16 +75,16 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 					<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
 					<br>
 					<br>
-					<button class="hide" style="background-color:#add8e6" id="button2">Submit</button>
-					<button class="hide" style="background-color:#add8e6" type="reset" class="btn" id="reset1">Reset</button>
+					<button class="hide" style="background-color:#add8e6;font-family: 'Courier New';" id="button2">Submit</button>
+					<button class="hide" style="background-color:#add8e6;font-family: 'Courier New';" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
 	</div>
 </section>
 
-	<script>
+	<!-- <script>
 		document.getElementById('ideaButtons').style.marginTop = "0px";
 		document.getElementById('ideaButtons').style.paddingBottom = "0px";
-	</script>
+	</script> -->
 	
 	<script>
 	function onButtonClick(){
@@ -156,8 +159,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </script>
 </div>
 </div>
-
-<footer id="footer">
+<footer>
 	<div class="col s12 heading">
 		<hr style="height:1px; border:none; color:#333; background-color:#333;"/>
 		<div class="contactButton">
@@ -173,7 +175,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		<div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div>
 	</div>
 </footer>
-
 <script>
 function openForm() {
 	if(document.getElementById('name').className == "hide"){
