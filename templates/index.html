@@ -5,9 +5,7 @@
 		<title>myWare</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-		<link rel = "stylesheet" type = "text/css" href = "index.css" />
-
-
+		<link rel="stylesheet" type="myWare/static/styles/index.css">
 		<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
 		</script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,29 +21,44 @@
 
 <body>
 
-<div class="jumbotron text-center">
+<div id="index-banner" class="jumbotron text-center">
 	<h1><span class="typing"></span></h1>
 </div>
+<style type="text/css">
+	#index-banner{
+	min-height: 220px;
+    max-height: 650px;
+    background-color: #add8e6;
+    position: relative;
+}
+</style>
 
 <!-- animated header -->
-<script src="jquery-3.4.1.min.js"></script>
-<script src="typed.min.js"></script>
+
 <script type="text/javascript">
 
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 
 </script>
-<p id="appIdea" value="Reset"></p>
-
+<div id="appIdea" value="Reset"></div>
 <!-- social media icons -->
 <div class="leftside">
 	<ul>
-		<li> <a href="https://www.facebook.com/sharer.php" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-		<li> <a href="https://twitter.com/intent/tweet" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
-		<li> <a href="https://www.linkedin.com/shareArticle" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-		<li> <a href="http://reddit.com/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a></li>
+<!-- 	<li> <a href="http://facebook.com/" id="fb" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+ -->
+	<li> <a href="https://twitter.com/intent/tweet" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+	<li> <a href="https://www.linkedin.com/shareArticle" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+	<li> <a href="http://reddit.com/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a></li>
 	</ul>
 </div>
+<style type="text/css">
+	.leftside {
+	position: absolute;
+	top: 25%;
+	text-align: left;
+	padding-top: 320px;
+}
+</style>
 <!-- left side margins -->
 <style type="text/css">
 	*{
@@ -71,22 +84,16 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 						<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
 						<br>
 						<br>
-<<<<<<< HEAD
-						<button class="hide" type="submit" id="button2" class="btn" style="background-color: #add8e6">Submit </button>
-						<button class="hide" type="reset" class="btn" id="reset1" style="background-color: #add8e6">Reset</button>
-=======
 						<button class="hide" style="background-color:#add8e6" id="button2">Submit</button>
 						<button class="hide" style="background-color:#add8e6" type="reset" class="btn" id="reset1">Reset</button>
 
 					</div>
->>>>>>> b7b850371a75f67d52360d5950ed421d964fa383
 				</form>
 		</div>
 </section>
 	
 	<script>
 	function onButtonClick(){
-<<<<<<< HEAD
 	  if (document.getElementById('appName').className =="hide"){	
 		  document.getElementById('appName').className="show";
 		  document.getElementById('ideaInput').className="show";
@@ -99,20 +106,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		  document.getElementById('button2').className="hide";
 		  document.getElementById('reset1').className="hide";
 	  }
-=======
-		if(document.getElementById('appName').className == "hide"){
-			document.getElementById('appName').className="show";
-			document.getElementById('ideaInput').className="show";
-			document.getElementById('button2').className="show";
-			document.getElementById('reset1').className="show";
-		}
-		else{
-			document.getElementById('appName').className="hide";
-			document.getElementById('ideaInput').className="hide";
-			document.getElementById('button2').className="hide";
-			document.getElementById('reset1').className="hide";
-		}
->>>>>>> b7b850371a75f67d52360d5950ed421d964fa383
 	}
 	</script>
 
@@ -128,7 +121,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			docRef.get().then(function(doc) {
     			if (doc.exists) {
         			console.log("counter " + counter);
-        			appIdea.innerHTML = "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</h3></div>";
+        			appIdea.innerHTML = "<div align='center' class ='appIdea'><p> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</p></div>";
     			} else {
         			// doc.data() will be undefined in this case
         			console.log("No such document!");
@@ -139,8 +132,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		}
 	</script>
 	
-
-
   <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
 
   <!-- Add Firebase products that you want to use -->
@@ -174,53 +165,38 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </script>
 
 
-<div class="col s12 heading">
-<<<<<<< HEAD
+<div id="foot" class="col s12 heading">
 	<hr style="height:1px; border:none; color:#333; background-color:#333;" />
 	<div class="contactButton">
 		<button class="open-button" onclick="openForm()" style="background-color: #add8e6">Contact</button>
-=======
-	<hr style="height:1px; border:none; color:#333; background-color:#333;"/>
-	<div class="contactButton">
-		<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
->>>>>>> b7b850371a75f67d52360d5950ed421d964fa383
 	</div>
 	<form class="form-popup" action="/send" method="POST">
 		<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
 		<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
 		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-<<<<<<< HEAD
-		<button class="hide" type="submit" name="submit" class="btn" id="button3" style="background-color: #add8e6">Submit</button>
-		<button class="hide" type="reset" class="btn" id="button4" style= "background-color: #add8e6">Reset</button>
-=======
 		<button class="hide" type="submit" name="submit" class="btn" id="button3" style="background-color:#add8e6;font-family:'Courier New';">Submit</button>
 		<button class="hide" type="reset" class="btn" id="button4" style="background-color:#add8e6; font-family:'Courier New';">Reset</button>
->>>>>>> b7b850371a75f67d52360d5950ed421d964fa383
 	</form>
 	<div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div>
 </div>
+<!-- <style type="text/css">
+	#foot{
+		position:fixed;
+		   bottom:0;
+		   width:100%;
+		   height:100px;   
+	}
+</style> -->
 
-<<<<<<< HEAD
-
-
-<script>
-function openForm() {
-	if (document.getElementById('name').className =="hide"){
-=======
 <script>
 function openForm() {
 	if(document.getElementById('name').className == "hide"){
->>>>>>> b7b850371a75f67d52360d5950ed421d964fa383
 		document.getElementById('name').className="show";
 		document.getElementById('email').className="show";
 		document.getElementById('feedback').className="show";
 		document.getElementById('button3').className="show";
 		document.getElementById('button4').className="show";
-<<<<<<< HEAD
-	}
-=======
 	}	
->>>>>>> b7b850371a75f67d52360d5950ed421d964fa383
 	else{
 		document.getElementById('name').className="hide";
 		document.getElementById('email').className="hide";
