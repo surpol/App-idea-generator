@@ -69,12 +69,12 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 
 <!-- buttons -->
 <section id = "dual-button">
-		<div style= "text-align: center;">
-			<button class="button" onclick="retrieve()" ><b>Get Idea</b></button>
+		<div id="ideaButtons" style= "text-align: center;">
+			<button id="butt" class="button" onclick="retrieve()" ><b>Get Idea</b></button>
 		</div>
 
-		<div style= "text-align: center;">
-			<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
+		<div id="ideaButtons" style= "text-align: center;">
+			<button id="butt" class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
 			<br>
 			<br>
 				<form id="showup" class="form-popup" action="/idea" method="POST">
@@ -91,20 +91,26 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 				</form>
 		</div>
 </section>
-	
+
+
+	<script>
+		document.getElementById('ideaButtons').style.marginTop = "0px";
+		document.getElementById('ideaButtons').style.paddingBottom = "0px";
+	</script>
+
 	<script>
 	function onButtonClick(){
 	  if (document.getElementById('appName').className =="hide"){	
-		  document.getElementById('appName').className="show";
-		  document.getElementById('ideaInput').className="show";
-		  document.getElementById('button2').className="show";
-		  document.getElementById('reset1').className="show";
+			document.getElementById('appName').className="show";
+			document.getElementById('ideaInput').className="show";
+			document.getElementById('button2').className="show";
+			document.getElementById('reset1').className="show";
 	  }
 	  else{
-	  	  document.getElementById('appName').className="hide";
-		  document.getElementById('ideaInput').className="hide";
-		  document.getElementById('button2').className="hide";
-		  document.getElementById('reset1').className="hide";
+			document.getElementById('appName').className="hide";
+			document.getElementById('ideaInput').className="hide";
+			document.getElementById('button2').className="hide";
+			document.getElementById('reset1').className="hide";
 	  }
 	}
 	</script>
