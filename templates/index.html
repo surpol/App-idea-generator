@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,8 +66,8 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 						<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
 						<br>
 						<br>
-						<button class="hide" id="button2"><b>Submit</b> </button>
-						<button class="hide" type="reset" class="btn" id="reset1"><b>Reset</b></button>
+						<button class="hide" style="background-color:#add8e6" id="button2">Submit</button>
+						<button class="hide" style="background-color:#add8e6" type="reset" class="btn" id="reset1">Reset</button>
 
 					</div>
 				</form>
@@ -78,11 +78,18 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 	
 	<script>
 	function onButtonClick(){
-	  document.getElementById('appName').className="show";
-	  document.getElementById('ideaInput').className="show";
-	  document.getElementById('button2').className="show";
-	  document.getElementById('reset1').className="show";
-
+		if(document.getElementById('appName').className == "hide"){
+			document.getElementById('appName').className="show";
+			document.getElementById('ideaInput').className="show";
+			document.getElementById('button2').className="show";
+			document.getElementById('reset1').className="show";
+		}
+		else{
+			document.getElementById('appName').className="hide";
+			document.getElementById('ideaInput').className="hide";
+			document.getElementById('button2').className="hide";
+			document.getElementById('reset1').className="hide";
+		}
 	}
 	</script>
 
@@ -91,17 +98,14 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		function retrieve(){
 		
 			const appIdea = document.querySelector("#appIdea");
-			appIdea.innerHTML = null;
 
 			var counter = Math.floor(Math.random() * 41); //number of docs in database
 			var docRef = db.collection("myIdeas").doc(counter.toString());
 
 			docRef.get().then(function(doc) {
     			if (doc.exists) {
-    				appIdea.innerHTML = null;
-
         			console.log("counter " + counter);
-        			appIdea.innerHTML += "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</h3></div>";
+        			appIdea.innerHTML = "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</h3></div>";
     			} else {
         			// doc.data() will be undefined in this case
         			console.log("No such document!");
@@ -109,17 +113,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			}).catch(function(error) {
     				console.log("Error getting document:", error);
 			});
-			// var counter = Math.floor(Math.random() * 27) + 0; //27 is number of docs in database
-
-			// db.collection("Ideas").get().then(function(querySnapshot) {
-			// 	querySnapshot.forEach(function(doc) {
-			// 	// doc.data() is never undefined for query doc snapshots
-			// 	if (doc.data().count == counter){
-			// 		//console.log(counter);					
-			// 		appIdea.innerHTML += "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br>" + doc.data().Description+ "</h3></div>";
-			// 	}
-			// 	});
-			// });
 		}
 	</script>
 	
@@ -156,38 +149,40 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
   const db = firebase.firestore(app);   
 
 </script>
-   
 
 
-
-
-</body>
-
-<footer class="footer">
+<div class="col s12 heading">
+	<hr style="height:1px; border:none; color:#333; background-color:#333;"/>
 	<div class="contactButton">
-		<button class="open-button" onclick="openForm()">Contact</button>
+		<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
 	</div>
-	
 	<form class="form-popup" action="/send" method="POST">
 		<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
 		<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
 		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-		<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
-		<button class="hide" type="reset" class="btn" id="button4">Reset</button>
+		<button class="hide" type="submit" name="submit" class="btn" id="button3" style="background-color:#add8e6;font-family:'Courier New';">Submit</button>
+		<button class="hide" type="reset" class="btn" id="button4" style="background-color:#add8e6; font-family:'Courier New';">Reset</button>
 	</form>
-
-	<div id="copyright" style="color:white;">Copyright @2019 All rights reserved</div>
+	<div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div>
 </div>
 
-</footer>
 <script>
 function openForm() {
-	document.getElementById('name').className="show";
-	document.getElementById('email').className="show";
-	document.getElementById('feedback').className="show";
-	document.getElementById('button3').className="show";
-	document.getElementById('button4').className="show";
+	if(document.getElementById('name').className == "hide"){
+		document.getElementById('name').className="show";
+		document.getElementById('email').className="show";
+		document.getElementById('feedback').className="show";
+		document.getElementById('button3').className="show";
+		document.getElementById('button4').className="show";
+	}	
+	else{
+		document.getElementById('name').className="hide";
+		document.getElementById('email').className="hide";
+		document.getElementById('feedback').className="hide";
+		document.getElementById('button3').className="hide";
+		document.getElementById('button4').className="hide";
+	}
 }
-
 </script>
+</body>
 </html>
