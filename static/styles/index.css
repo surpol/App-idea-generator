@@ -5,6 +5,28 @@
     width:100%;
  	}
 }
+html, body {
+  height: 100%;
+}
+
+#container {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 100px;
+
+}
+
+#footer{
+	background-color: black;
+	position: relative;
+	height: 50px;
+	margin-top: -50px;
+	clear: both;
+}
+
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -50,26 +72,26 @@
 .button {
 	background-color: #add8e6;
 	color: black;
-	padding: 15px 32px;
 	font-size: 16px;
-} /* Blue */
-
-#dual-button div{
-	
-	background-color: #ffffff;
-	margin: 115px;
 	font-family: "Courier New";
 	text-align: center;
+} /* Blue */
 
+#ideaButtons{
+	font-size: 0px;
 }
+
+#dualButtons{
+	font-size: 0px;
+}
+
 .button2{
 	font-size: 10px;
 	background-color: #008CBA;
 	color: white;
 	padding: 15px 32px;
-
-
 }
+
 .hide{
   display:none;
 }
@@ -124,4 +146,3 @@
 .bottom{
 	padding-top: 400px;
 }
-

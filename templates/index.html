@@ -16,6 +16,8 @@
 
 <body>
 
+<div id="container">
+<div id="main">
 <div class="jumbotron text-center">
 	<h1><span class="typing"></span></h1>
 </div>
@@ -50,31 +52,31 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 
 <!-- buttons -->
 <section id = "dual-button">
-	<div class="column">
-		<div style= "text-align: center;">
-			<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
-		</div>
-
-		<div style= "text-align: center;">
-			<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
-			<br>
-			<br>
-				<form class="form-popup" action="/idea" method="POST">
-						<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
-						<br>
-						<br>
-						<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
-						<br>
-						<br>
-						<button class="hide" style="background-color:#add8e6" id="button2">Submit</button>
-						<button class="hide" style="background-color:#add8e6" type="reset" class="btn" id="reset1">Reset</button>
-
-					</div>
-				</form>
-		</div>
+	<div id="ideaButtons" style= "text-align:center;">
+		<button id="butt" class="button" onclick="retrieve()"><b>Get Idea</b></button>
 	</div>
-<!-- </form>
- --></section>
+
+	<div id="ideaButtons" style= "text-align: center;">
+		<button id="butt" class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
+		<br>
+		<br>
+			<form class="form-popup" action="/idea" method="POST">
+					<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
+					<br>
+					<br>
+					<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
+					<br>
+					<br>
+					<button class="hide" style="background-color:#add8e6" id="button2">Submit</button>
+					<button class="hide" style="background-color:#add8e6" type="reset" class="btn" id="reset1">Reset</button>
+			</form>
+	</div>
+</section>
+
+	<script>
+		document.getElementById('ideaButtons').style.marginTop = "0px";
+		document.getElementById('ideaButtons').style.paddingBottom = "0px";
+	</script>
 	
 	<script>
 	function onButtonClick(){
@@ -105,7 +107,9 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			docRef.get().then(function(doc) {
     			if (doc.exists) {
         			console.log("counter " + counter);
-        			appIdea.innerHTML = "<div align='center' class ='appIdea'><h3> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</h3></div>";
+        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:100px;padding-right:100px;padding-bottom:0;margin-bottom:0;'><p> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</p></div>";
+        				document.getElementById('apps').style.fontFamily = "Courier New";
+        				document.getElementById('apps').style.marginBottom = "0px";
     			} else {
         			// doc.data() will be undefined in this case
         			console.log("No such document!");
@@ -149,22 +153,25 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
   const db = firebase.firestore(app);   
 
 </script>
-
-
-<div class="col s12 heading">
-	<hr style="height:1px; border:none; color:#333; background-color:#333;"/>
-	<div class="contactButton">
-		<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
-	</div>
-	<form class="form-popup" action="/send" method="POST">
-		<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
-		<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
-		<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-		<button class="hide" type="submit" name="submit" class="btn" id="button3" style="background-color:#add8e6;font-family:'Courier New';">Submit</button>
-		<button class="hide" type="reset" class="btn" id="button4" style="background-color:#add8e6; font-family:'Courier New';">Reset</button>
-	</form>
-	<div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div>
 </div>
+</div>
+
+<footer id="footer">
+	<div class="col s12 heading">
+		<hr style="height:1px; border:none; color:#333; background-color:#333;"/>
+		<div class="contactButton">
+			<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
+		</div>
+		<form class="form-popup" action="/send" method="POST">
+			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
+			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
+			<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
+			<button class="hide" type="submit" name="submit" class="btn" id="button3" style="background-color:#add8e6;font-family:'Courier New';">Submit</button>
+			<button class="hide" type="reset" class="btn" id="button4" style="background-color:#add8e6; font-family:'Courier New';">Reset</button>
+		</form>
+		<div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div>
+	</div>
+</footer>
 
 <script>
 function openForm() {
