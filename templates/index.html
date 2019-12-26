@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>myWare</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel = "stylesheet" type = "text/css" href = "index.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
-		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
-		<script src="{{url_for('static', filename='typed.min.js')}}"></script>
-	</head>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>myWare</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel = "stylesheet" type = "text/css" href = "index.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
+</head>
 
 <body>
-<!-- 
 <div id="container">
+<<<<<<< HEAD
 <div id="main"> -->
+=======
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 <div id="index-height" class="jumbotron d-none d-sm-block">
 	<h1><span class="typing"></span></h1>
 </div>
+
+<nav class="navbar fixed-top">
+  <button class="open-button" onclick="openForm()">Contact</button>
+</nav>
 
 
 <!-- animated header -->
@@ -30,6 +36,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </script>
 <!-- 	<p id="appIdea" value="Reset"></p>
  -->
+<<<<<<< HEAD
 
 <br>
 	<br>
@@ -41,6 +48,15 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 <!-- buttons -->
 <!-- <section id = "dual-button">
  -->	<div style= "text-align:center;">
+=======
+	<br>
+	<br>
+	<p id="appIdea" value="Reset"></p>
+
+<!-- buttons -->
+<div class="container">
+	<div style= "text-align:center;">
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 		<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
 	</div>
 	<br>
@@ -64,8 +80,17 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 					<button class="hide" style="background-color:#add8e6;font-family: 'Courier New';" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
 	</div>
+<<<<<<< HEAD
 <!-- </section>
  -->
+=======
+</div>
+
+	<!-- <script>
+		document.getElementById('ideaButtons').style.marginTop = "0px";
+		document.getElementById('ideaButtons').style.paddingBottom = "0px";
+	</script> -->
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 	
 	<script>
 	function onButtonClick(){
@@ -94,9 +119,17 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			docRef.get().then(function(doc) {
     			if (doc.exists) {
         			console.log("counter " + counter);
+<<<<<<< HEAD
         			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:100px;padding-right:100px;padding-bottom:0;margin-bottom:0;'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</p></div>";
         				document.getElementById('apps').style.fontFamily = "Courier New";
         				// document.getElementById('apps').style.marginBottom = "0px";
+=======
+        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:150px;padding-right:150px;'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
+        				document.getElementById('apps').style.fontFamily = "Courier New";
+        				document.getElementById('apps').style.marginBottom = "0px";
+        				document.getElementById('apps').style.color = "white";
+
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
     			} else {
         			// doc.data() will be undefined in this case
         			console.log("No such document!");
@@ -139,6 +172,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
   const db = firebase.firestore(app);   
 </script>
 </div>
+<<<<<<< HEAD
 </div>
 <footer class="page-footer font-small blue">
 	<div class="col s12 heading">
@@ -146,16 +180,25 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		<div class="contactButton">
 			<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact Us</button>
 		</div>
+=======
+<footer>
+	<div class="col s12 heading">
+		<!-- <hr style="height:1px; border:none; color:#333; background-color:#333;"/> -->
+		<!-- <div class="contactButton">
+			<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
+		</div> -->
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 		<form class="form-popup" action="/send" method="POST">
 			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
 			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
 			<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-			<button class="hide" type="submit" name="submit" class="btn" id="button3" style="background-color:#add8e6;font-family:'Courier New';">Submit</button>
-			<button class="hide" type="reset" class="btn" id="button4" style="background-color:#add8e6; font-family:'Courier New';">Reset</button>
+			<br>
+			<br>
+			<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
+			<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 		</form>
-		<div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div>
+		<!-- <div id="copyright" style="color:black;">Copyright @2019 All rights reserved</div> -->
 	</div>
-</footer>
 <script>
 function openForm() {
 	if(document.getElementById('name').className == "hide"){
@@ -174,8 +217,13 @@ function openForm() {
 	}
 }
 </script>
+<<<<<<< HEAD
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e04333977859deb"></script>
 
+=======
+</footer>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e04333977859deb"></script>
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 </body>
 </html>

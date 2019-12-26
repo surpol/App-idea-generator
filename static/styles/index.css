@@ -1,8 +1,9 @@
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
+/*@media only screen and (max-width:620px) {
+   For mobile phones: 
   .menu, .main, .right {
     width:100%;
  	}
+<<<<<<< HEAD
 }
 
 html, body {
@@ -19,17 +20,14 @@ html, body {
 #main {
   overflow: auto;
   padding-bottom: 100px;
+=======
+}*/
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 
+*{
+	padding: 0px;
+	margin:0px;
 }
-
-#footer{
-	background-color: black;
-	position: relative;
-	height: 50px;
-	margin-top: -50px;
-	clear: both;
-}
-
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -40,6 +38,7 @@ html, body {
 }
 
 .button {
+<<<<<<< HEAD
 
 	background-color: #add8e6;
 	font-size: 16px;
@@ -50,22 +49,41 @@ html, body {
 
 } /* Blue */
 
+=======
+	background-color: black;
+	color: white;
+	padding: 15px 32px;
+	font-size: 16px;
+	font-family: "Courier New";
+	border: 2px solid white;
+} /* Blue */
+
+ /* #dual-button div{
+	
+	background-color: #fffff;
+	margin: 115px;
+	font-family: "Courier New";
+	text-align: center;
+}
+*/
+>>>>>>> 9b34f6383afb740238c4e7171c3e67dd8534cf12
 .button2{
 	font-size: 10px;
 	background-color: #008CBA;
 	color: white;
-	
-}
+	padding: 15px 32px;
 
+
+}
 .hide{
   display:none;
 }
 
 .jumbotron{
-	background-color: #add8e6;
+	background-color: black;
 	font-family: "Courier New";
 	border-radius: 0px;
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	min-height: 220px;
 	max-height: 700px;
 }
@@ -86,7 +104,11 @@ html, body {
 }
 
 .open-button{
-	font-weight: bold;
+	font-family:"Courier New";
+	border: 0px;
+	font-size: 25px;
+	background-color: black;
+	color: white;
 }
 
 .form-popup{
@@ -110,14 +132,36 @@ html, body {
 .message{
 	text-align: center;
 	font-family: "Courier New";
-	color: black;
-}
-
-.message a:visited{
-	color: #add8e6;
+	color: white;
+	font-size: 50px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }
 
 .bottom{
 	padding-top: 400px;
-
 }
+
+html, body {
+	background-color: black;
+}
+
+.navbar-brand {
+	background-color: black;
+	color: white;	
+	font-family: "Courier New";
+}
+.navbar fixed-top{
+	background-color: black;
+}
+
+#button3, #button4{
+	background-color:black; 
+	font-family:"Courier New";
+	border: 2px solid white;
+	color: white;
+	padding: 5px;
+}
+
