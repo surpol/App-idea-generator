@@ -13,49 +13,34 @@
 		<script src="{{url_for('static', filename='typed.min.js')}}"></script>
 	</head>
 
-
 <body>
 <!-- 
 <div id="container">
 <div id="main"> -->
-<div id="index-height" class="jumbotron text-center">
+<div id="index-height" class="jumbotron d-none d-sm-block">
 	<h1><span class="typing"></span></h1>
 </div>
 
 
 <!-- animated header -->
-<script src="jquery-3.4.1.min.js"></script>
-<script src="typed.min.js"></script>
+<!-- <script src="jquery-3.4.1.min.js"></script>
+<script src="typed.min.js"></script> -->
 <script type="text/javascript">
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 </script>
 <!-- 	<p id="appIdea" value="Reset"></p>
  -->
-<!-- social media icons -->
-<div class="leftside">
-	<ul>
-		<li> <a href="https://www.facebook.com/sharer.php" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-		<li> <a href="https://twitter.com/intent/tweet" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
-		<li> <a href="https://www.linkedin.com/shareArticle" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-		<li> <a href="http://reddit.com/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a></li>
-	</ul>
-</div>
-<!-- left side margins -->
-<style type="text/css">
-	*{
-		padding: 0px;
-		margin:0px;
-	}
-</style>
+
+<br>
 	<br>
 	<br>
-	<p id="appIdea" value="Reset"></p>
-	<br>
-	<br>
+	<p  id="appIdea" value="Reset"></p>
+
+	
 
 <!-- buttons -->
-<section id = "dual-button">
-	<div style= "text-align:center;">
+<!-- <section id = "dual-button">
+ -->	<div style= "text-align:center;">
 		<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
 	</div>
 	<br>
@@ -79,12 +64,8 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 					<button class="hide" style="background-color:#add8e6;font-family: 'Courier New';" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
 	</div>
-</section>
-
-	<!-- <script>
-		document.getElementById('ideaButtons').style.marginTop = "0px";
-		document.getElementById('ideaButtons').style.paddingBottom = "0px";
-	</script> -->
+<!-- </section>
+ -->
 	
 	<script>
 	function onButtonClick(){
@@ -108,14 +89,14 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		function retrieve(){
 		
 			const appIdea = document.querySelector("#appIdea");
-			var counter = Math.floor(Math.random() * 41); //number of docs in database
+			var counter = Math.floor(Math.random() * 43); //number of docs in database
 			var docRef = db.collection("myIdeas").doc(counter.toString());
 			docRef.get().then(function(doc) {
     			if (doc.exists) {
         			console.log("counter " + counter);
-        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:100px;padding-right:100px;padding-bottom:0;margin-bottom:0;'><p> App Name: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</p></div>";
+        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:100px;padding-right:100px;padding-bottom:0;margin-bottom:0;'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</p></div>";
         				document.getElementById('apps').style.fontFamily = "Courier New";
-        				document.getElementById('apps').style.marginBottom = "0px";
+        				// document.getElementById('apps').style.marginBottom = "0px";
     			} else {
         			// doc.data() will be undefined in this case
         			console.log("No such document!");
@@ -159,11 +140,11 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </script>
 </div>
 </div>
-<footer>
+<footer class="page-footer font-small blue">
 	<div class="col s12 heading">
 		<hr style="height:1px; border:none; color:#333; background-color:#333;"/>
 		<div class="contactButton">
-			<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
+			<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact Us</button>
 		</div>
 		<form class="form-popup" action="/send" method="POST">
 			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
@@ -193,5 +174,8 @@ function openForm() {
 	}
 }
 </script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e04333977859deb"></script>
+
 </body>
 </html>

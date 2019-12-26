@@ -4,8 +4,12 @@
     width:100%;
  	}
 }
+
 html, body {
   height: 100%;
+  width: 100%;
+  position: fixed;
+
 }
 
 #container {
@@ -35,52 +39,16 @@ html, body {
 
 }
 
-/* Add a hover effect if you want */
-.fa:hover {
-  opacity: 0.7;
-}
-
-/* Set a specific color for each brand */
-
-/* Facebook */
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
-.fa-reddit {
-  background: #ff5700;
-  color: white;
-}
-.fa-instagram {
-  background: #3f729b;
-  color: white;
-}
-
-/* aligning icons to left side*/
-.leftside {
-	position: absolute;
-	top: 25%;
-	text-align: left;
-	padding-top: 10px;
-}
-
 .button {
+
 	background-color: #add8e6;
-	color: black;
 	font-size: 16px;
 	font-family: "Courier New";
-	text-align: center;
 	padding: 15px 32px;
 
-} /* Blue */
 
-#dual-button{
-	background-color: #ffffff;
-}
+
+} /* Blue */
 
 .button2{
 	font-size: 10px;
@@ -105,6 +73,7 @@ html, body {
 .jumbotron h1{
 	font-size: 60px;
 	color: white;
+	text-align: center;
 }
 
 .contactButton {
@@ -113,6 +82,7 @@ html, body {
 	font-family: "Courier New";
 	font-weight: bold;
 	padding-bottom: 10px;
+
 }
 
 .open-button{
@@ -123,15 +93,20 @@ html, body {
 	text-align: center;
 	width: 100%;
 }
-
-#copyright{
-	text-align: center;
-	width: 100%;
-	bottom: 0px;
-	font-family: "Courier New";
-	font-weight: bold;
+@media only screen and (min-height: 850px){
+	#copyright{
+		text-align: center;
+		width: 100%;
+		bottom: 0px;
+		font-family: "Courier New";
+		font-weight: bold;
+	}
 }
-
+@media only screen and (max-height: 849px){
+	#copyright{
+		display: none
+	}
+}
 .message{
 	text-align: center;
 	font-family: "Courier New";
