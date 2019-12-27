@@ -3,173 +3,169 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>myWare</title>
+	<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
+	</script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel = "stylesheet" type = "text/css" href = "index.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous">
-	</script>
+	
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
 	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
+	<script src="{{url_for('static', filename='index.js')}}"></script>
+
 </head>
 
-
 <body>
-<div id="container">
-<div id="index-height" class="jumbotron d-none d-sm-block">
-	<h1><span class="typing"></span></h1>
-</div>
+	<div id="container">
+		<div id="index-height" class="jumbotron d-none d-sm-block">
+			<h1><span class="typing"></span></h1>
+		</div>
 
-<nav class="navbar fixed-top">
-  <button class="open-button" onclick="openForm()">Contact</button>
-</nav>
+		<nav class="navbar fixed-top">
+		  <button class="open-button" onclick="openForm()">Contact</button>
+		</nav>
+
+		<!-- animated header -->
+	<!-- 	<script src="jquery-3.4.1.min.js"></script>
+		<script src="typed.min.js"></script> -->
+		<script type="text/javascript">
+		var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
+		</script>
+
+			
+		<!-- buttons -->
+		<div id="main" class="container">
+			<div class="container" id="ids">
+				<p id="appIdea"></p>
+			</div>
+			<div style= "text-align:center;">
+				<button id="getIdea" class="button" onclick="retrieve()"><b>Get Idea</b></button>
+			</div>
+
+			<div style= "text-align: center;">
+				<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
+				<br>
+				<br>
+					<form class="form-popup" action="/idea" method="POST">
+							<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
+							<br>
+							<br>
+							<textarea class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
+							<br>
+							<br>
+							<button class="hide" id="button2">Submit</button>
+							<button class="hide" type="reset" class="btn" id="reset1">Reset</button>
+					</form>
+			</div>
+		</div>
+			
+		<!-- 	<script>
+			function onButtonClick(){
+				if(document.getElementById('appName').className == "hide"){
+					document.getElementById('appName').className="show";
+					document.getElementById('ideaInput').className="show";
+					document.getElementById('button2').className="show";
+					document.getElementById('reset1').className="show";
+				}
+				else{
+					document.getElementById('appName').className="hide";
+					document.getElementById('ideaInput').className="hide";
+					document.getElementById('button2').className="hide";
+					document.getElementById('reset1').className="hide";
+				}
+			}
+			</script>
+
+			<script >
+			
+				function retrieve(){
+				
+					const appIdea = document.querySelector("#appIdea");
+					var counter = Math.floor(Math.random() * 41); //number of docs in database
+					var docRef = db.collection("myIdeas").doc(counter.toString());
+					docRef.get().then(function(doc) {
+		    			if (doc.exists) {
+		        			console.log("counter " + counter);
+		        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
+		        				document.getElementById('apps').style.fontFamily = "Courier New";
+		        				document.getElementById('apps').style.marginBottom = "3%";
+		        				document.getElementById('apps').style.color = "white";
+		    			} else {
+		        			// doc.data() will be undefined in this case
+		        			console.log("No such document!");
+		    			}
+					}).catch(function(error) {
+		    				console.log("Error getting document:", error);
+					});
+				}
+			</script> -->
+			
 
 
-<!-- animated header -->
-<script src="jquery-3.4.1.min.js"></script>
-<script src="typed.min.js"></script>
-<script type="text/javascript">
-var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
-</script>
-<!-- 	<p id="appIdea" value="Reset"></p>
- -->
-	
+		  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
 
-<!-- buttons -->
-<div id="main" class="container">
-	<div class="container" id="ids">
-		<p id="appIdea"></p>
+		  <!-- Add Firebase products that you want to use -->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		     https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+
+		<script>
+		  // Your web app's Firebase configurationA
+		  var firebaseConfig = {
+		    apiKey: "AIzaSyApbpDVs_AK8P7JWk34dayYZR84agdHEk4",
+		    authDomain: "myware-f1442.firebaseapp.com",
+		    databaseURL: "https://myware-f1442.firebaseio.com",
+		    projectId: "myware-f1442",
+		    storageBucket: "myware-f1442.appspot.com",
+		    messagingSenderId: "841014183410",
+		    appId: "1:841014183410:web:1c2c62be29048e64fad76b", 
+		    measurementId: "G-1GXJKW94Y8"
+		  };
+		  // Initialize Firebase
+		  var app = firebase.initializeApp(firebaseConfig);
+		  const db = firebase.firestore(app);   
+		</script>
 	</div>
-	<div style= "text-align:center;">
-		<button id="getIdea" class="button" onclick="retrieve()"><b>Get Idea</b></button>
-	</div>
-<!-- 	<br>
-	<br>
-	<br>
-	<br>
-	<br> -->
-
-	<div style= "text-align: center;">
-		<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
-		<br>
-		<br>
-			<form class="form-popup" action="/idea" method="POST">
-					<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
-					<br>
-					<br>
-					<textarea class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
-					<br>
-					<br>
-					<button class="hide" id="button2">Submit</button>
-					<button class="hide" type="reset" class="btn" id="reset1">Reset</button>
+	<footer>
+		<div class="col s12 heading">
+			<form class="form-popup" action="/send" method="POST">
+				<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
+				<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
+				<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
+				<br>
+				<br>
+				<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
+				<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 			</form>
-	</div>
-</div>
-	
-	<script>
-	function onButtonClick(){
-		if(document.getElementById('appName').className == "hide"){
-			document.getElementById('appName').className="show";
-			document.getElementById('ideaInput').className="show";
-			document.getElementById('button2').className="show";
-			document.getElementById('reset1').className="show";
-		}
+		</div>
+	<!-- <script>
+	function openForm() {
+		if(document.getElementById('name').className == "hide"){
+			document.getElementById('name').className="show";
+			document.getElementById('email').className="show";
+			document.getElementById('feedback').className="show";
+			document.getElementById('button3').className="show";
+			document.getElementById('button4').className="show";
+		}	
 		else{
-			document.getElementById('appName').className="hide";
-			document.getElementById('ideaInput').className="hide";
-			document.getElementById('button2').className="hide";
-			document.getElementById('reset1').className="hide";
+			document.getElementById('name').className="hide";
+			document.getElementById('email').className="hide";
+			document.getElementById('feedback').className="hide";
+			document.getElementById('button3').className="hide";
+			document.getElementById('button4').className="hide";
 		}
 	}
-	</script>
+	</script> -->
+	</footer>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e04333977859deb"></script>
 
-	<script >
-	
-		function retrieve(){
-		
-			const appIdea = document.querySelector("#appIdea");
-			var counter = Math.floor(Math.random() * 41); //number of docs in database
-			var docRef = db.collection("myIdeas").doc(counter.toString());
-			docRef.get().then(function(doc) {
-    			if (doc.exists) {
-        			console.log("counter " + counter);
-        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:150px;padding-right:150px;'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
-        				document.getElementById('apps').style.fontFamily = "Courier New";
-        				document.getElementById('apps').style.marginBottom = "3%";
-        				document.getElementById('apps').style.color = "white";
-    			} else {
-        			// doc.data() will be undefined in this case
-        			console.log("No such document!");
-    			}
-			}).catch(function(error) {
-    				console.log("Error getting document:", error);
-			});
-		}
-	</script>
-	
-
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-
-  <!-- Add Firebase products that you want to use -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
-
-<script>
-  // Your web app's Firebase configurationA
-  var firebaseConfig = {
-    apiKey: "AIzaSyApbpDVs_AK8P7JWk34dayYZR84agdHEk4",
-    authDomain: "myware-f1442.firebaseapp.com",
-    databaseURL: "https://myware-f1442.firebaseio.com",
-    projectId: "myware-f1442",
-    storageBucket: "myware-f1442.appspot.com",
-    messagingSenderId: "841014183410",
-    appId: "1:841014183410:web:1c2c62be29048e64fad76b", 
-    measurementId: "G-1GXJKW94Y8"
-  };
-  // Initialize Firebase
-  var app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore(app);   
-</script>
-</div>
-<footer>
-	<div class="col s12 heading">
-		<form class="form-popup" action="/send" method="POST">
-			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
-			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
-			<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-			<br>
-			<br>
-			<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
-			<button class="hide" type="reset" class="btn" id="button4">Reset</button>
-		</form>
-	</div>
-<script>
-function openForm() {
-	if(document.getElementById('name').className == "hide"){
-		document.getElementById('name').className="show";
-		document.getElementById('email').className="show";
-		document.getElementById('feedback').className="show";
-		document.getElementById('button3').className="show";
-		document.getElementById('button4').className="show";
-	}	
-	else{
-		document.getElementById('name').className="hide";
-		document.getElementById('email').className="hide";
-		document.getElementById('feedback').className="hide";
-		document.getElementById('button3').className="hide";
-		document.getElementById('button4').className="hide";
-	}
-}
-</script>
-</footer>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e04333977859deb"></script>
 </body>
 </html>
