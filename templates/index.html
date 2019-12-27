@@ -11,6 +11,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
 	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
+	<script src="{{url_for('static', filename='index.js')}}"></script>
 </head>
 
 
@@ -26,8 +27,8 @@
 
 
 <!-- animated header -->
-<script src="jquery-3.4.1.min.js"></script>
-<script src="typed.min.js"></script>
+<!-- <script src="jquery-3.4.1.min.js"></script>
+<script src="typed.min.js"></script> -->
 <script type="text/javascript">
 var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Create an Idea", "Share an Idea"],loop:true,typeSpeed:100,backSpeed:40,});
 </script>
@@ -66,7 +67,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 	</div>
 </div>
 	
-	<script>
+<!-- 	<script>
 	function onButtonClick(){
 		if(document.getElementById('appName').className == "hide"){
 			document.getElementById('appName').className="show";
@@ -81,9 +82,9 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			document.getElementById('reset1').className="hide";
 		}
 	}
-	</script>
+	</script> -->
 
-	<script >
+	<!-- <script >
 	
 		function retrieve(){
 		
@@ -93,7 +94,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			docRef.get().then(function(doc) {
     			if (doc.exists) {
         			console.log("counter " + counter);
-        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:150px;padding-right:150px;'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
+        			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
         				document.getElementById('apps').style.fontFamily = "Courier New";
         				document.getElementById('apps').style.marginBottom = "3%";
         				document.getElementById('apps').style.color = "white";
@@ -105,13 +106,43 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
     				console.log("Error getting document:", error);
 			});
 		}
-	</script>
+	</script> -->
 	
 
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-
-  <!-- Add Firebase products that you want to use -->
+</div>
+<footer>
+	<div class="col s12 heading">
+		<form class="form-popup" action="/send" method="POST">
+			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
+			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
+			<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
+			<br>
+			<br>
+			<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
+			<button class="hide" type="reset" class="btn" id="button4">Reset</button>
+		</form>
+	</div>
+<!-- <script>
+function openForm() {
+	if(document.getElementById('name').className == "hide"){
+		document.getElementById('name').className="show";
+		document.getElementById('email').className="show";
+		document.getElementById('feedback').className="show";
+		document.getElementById('button3').className="show";
+		document.getElementById('button4').className="show";
+	}	
+	else{
+		document.getElementById('name').className="hide";
+		document.getElementById('email').className="hide";
+		document.getElementById('feedback').className="hide";
+		document.getElementById('button3').className="hide";
+		document.getElementById('button4').className="hide";
+	}
+}
+</script> -->
+</footer>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<!-- Add Firebase products that you want to use -->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
 
@@ -138,38 +169,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
   var app = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore(app);   
 </script>
-</div>
-<footer>
-	<div class="col s12 heading">
-		<form class="form-popup" action="/send" method="POST">
-			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
-			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
-			<input class="hide" type="text" name="feedback" placeholder="Feedback?" id="feedback" value=""/>
-			<br>
-			<br>
-			<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
-			<button class="hide" type="reset" class="btn" id="button4">Reset</button>
-		</form>
-	</div>
-<script>
-function openForm() {
-	if(document.getElementById('name').className == "hide"){
-		document.getElementById('name').className="show";
-		document.getElementById('email').className="show";
-		document.getElementById('feedback').className="show";
-		document.getElementById('button3').className="show";
-		document.getElementById('button4').className="show";
-	}	
-	else{
-		document.getElementById('name').className="hide";
-		document.getElementById('email').className="hide";
-		document.getElementById('feedback').className="hide";
-		document.getElementById('button3').className="hide";
-		document.getElementById('button4').className="hide";
-	}
-}
-</script>
-</footer>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e04333977859deb"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e058c0f5ba5664b"></script>
 </body>
 </html>
