@@ -9,6 +9,31 @@
 	padding: 0px;
 	margin:0px;
 }
+.container{
+	margin-bottom:5%;
+}
+#reset1, #button2{
+	background-color: black; 
+	font-family:"Courier New";
+	border: 2px solid white;
+	color: white;
+	padding: 5px;
+}
+#appName::placeholder{
+	font-family: "Courier New";
+}
+#ideaInput::placeholder{
+	font-family: "Courier New";
+}
+#name::placeholder{
+	font-family: "Courier New";
+}
+#email::placeholder{
+	font-family: "Courier New";
+}
+#feedback::placeholder{
+	font-family: "Courier New";
+}
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -16,6 +41,9 @@
   text-align: center;
   text-decoration: none;
 
+}
+#getIdea{
+	margin-bottom: 10%;
 }
 
 .button {
@@ -52,8 +80,8 @@
 	font-family: "Courier New";
 	border-radius: 0px;
 	/*border: 2px solid black;*/
-	min-height: 220px;
-	max-height: 700px;
+	min-height: 280px;
+	max-height: 770px;
 }
 
 .jumbotron h1{
@@ -77,6 +105,7 @@
 	background-color: black;
 	color: white;
 }
+#app
 
 .form-popup{
 	text-align: center;

@@ -33,20 +33,20 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </script>
 <!-- 	<p id="appIdea" value="Reset"></p>
  -->
-	<br>
-	<br>
-	<p id="appIdea" value="Reset"></p>
 
 <!-- buttons -->
-<div class="container">
-	<div style= "text-align:center;">
-		<button class="button" onclick="retrieve()"><b>Get Idea</b></button>
+<div id="main" class="container">
+	<div class="container" id="ids">
+		<p id="appIdea"></p>
 	</div>
+	<div style= "text-align:center;">
+		<button id="getIdea" class="button" onclick="retrieve()"><b>Get Idea</b></button>
+	</div>
+	<!-- <br>
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
+	<br> -->
 
 	<div style= "text-align: center;">
 		<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
@@ -59,8 +59,8 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 					<textarea class="hide" type="text" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
 					<br>
 					<br>
-					<button class="hide" style="background-color:#add8e6;font-family: 'Courier New';" id="button2">Submit</button>
-					<button class="hide" style="background-color:#add8e6;font-family: 'Courier New';" type="reset" class="btn" id="reset1">Reset</button>
+					<button class="hide" id="button2">Submit</button>
+					<button class="hide" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
 	</div>
 </div>
@@ -99,7 +99,7 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
         			console.log("counter " + counter);
         			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps' style='padding-left:150px;padding-right:150px;'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
         				document.getElementById('apps').style.fontFamily = "Courier New";
-        				document.getElementById('apps').style.marginBottom = "0px";
+        				document.getElementById('apps').style.marginBottom = "3%";
         				document.getElementById('apps').style.color = "white";
 
     			} else {
@@ -146,10 +146,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 </div>
 <footer>
 	<div class="col s12 heading">
-		<!-- <hr style="height:1px; border:none; color:#333; background-color:#333;"/> -->
-		<!-- <div class="contactButton">
-			<button class="open-button" style="background-color:#add8e6" onclick="openForm()">Contact</button>
-		</div> -->
 		<form class="form-popup" action="/send" method="POST">
 			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
 			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
