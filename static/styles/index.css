@@ -16,11 +16,7 @@
   text-decoration: none;
 
 }
-@media only screen and (max-width:575px) {
-	#main{
-		padding-top: 30%;
-	}
-}
+
 #getIdea{
 	margin-bottom: 15%;
 }
@@ -106,6 +102,14 @@ input[type="text"]
 	font-size: 25px;
 	background-color: black;
 	color: white;
+}
+@media only screen and (max-width:575px) {
+	#main{
+		padding-top: 30%;
+	}
+	.open-button{
+		font-size: 15px;
+	}
 }
 #appName::placeholder{
 	font-family: "Courier New"
