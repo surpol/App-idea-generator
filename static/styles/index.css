@@ -17,10 +17,6 @@
   text-decoration: none;
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 21e6041db6376b157a2d183236394b1dbb60f559
 #getIdea{
 	margin-bottom: 15%;
 }
@@ -63,7 +59,7 @@ input[type="text"]
     font-family: "Courier New";
 }
 #main{
-	padding-bottom: 3%;
+	margin-bottom: 5%;
 }
 #reset1, #button2{
 	background-color:black; 
@@ -106,16 +102,10 @@ input[type="text"]
 	background-color: black;
 	color: white;
 }
-<<<<<<< HEAD
-@media only screen and (max-width:575px) {
-	#main{
-		padding-top: 30%;
-=======
 @media only screen and (max-width:575px){
 	#main{
 		padding-top:20%;
 		text-align: center;
->>>>>>> 21e6041db6376b157a2d183236394b1dbb60f559
 	}
 	.open-button{
 		font-size: 15px;
@@ -140,15 +130,9 @@ input[type="text"]
 .form-popup{
 	text-align: center;
 	width: 100%;
-<<<<<<< HEAD
-	padding-bottom: 11%;
-}
-@media only screen and (max-width:415px) {
-=======
 	padding-bottom: 4%;
 }
 @media only screen and (max-width:415px){
->>>>>>> 21e6041db6376b157a2d183236394b1dbb60f559
 	.form-popup{
 		text-align: center;
 		width: 100%;

@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
+
 // For give and get idea buttons
->>>>>>> 21e6041db6376b157a2d183236394b1dbb60f559
 function onButtonClick(){
 	if(document.getElementById('appName').className == "hide"){
 		document.getElementById('appName').className="show";
@@ -17,14 +15,9 @@ function onButtonClick(){
 	}
 }
 
-<<<<<<< HEAD
-function retrieve(){
-				
-=======
 // Gets random app from database
 function retrieve(){
 
->>>>>>> 21e6041db6376b157a2d183236394b1dbb60f559
 	const appIdea = document.querySelector("#appIdea");
 	var counter = Math.floor(Math.random() * 43); //number of docs in database
 	var docRef = db.collection("myIdeas").doc(counter.toString());
@@ -44,10 +37,7 @@ function retrieve(){
 	});
 }
 
-<<<<<<< HEAD
-=======
 // For contact form 
->>>>>>> 21e6041db6376b157a2d183236394b1dbb60f559
 function openForm() {
 	if(document.getElementById('name').className == "hide"){
 		document.getElementById('name').className="show";
