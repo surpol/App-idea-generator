@@ -22,7 +22,7 @@ def send():
 	if request.method == 'POST':
 		name = request.form['name']
 		email = request.form['email']
-		feedback = request.form['feedback']
+		feedback = "Email sent from: " + email + "\n" + "Feedback: " + request.form['feedback']
 		msg = Message(sender=email, recipients=['namskek2@gmail.com', 'suryapolina2@gmail.com'], body=feedback, subject=name)
 		mail.send(msg)
 		return render_template('feedbackMessage.html', name=name)

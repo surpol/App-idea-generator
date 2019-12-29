@@ -22,7 +22,6 @@
 <div id="index-height" class="jumbotron d-none d-sm-block">
 	<h1><span class="typing"></span></h1>
 </div>
-ƒs
 <nav class="navbar fixed-top">
   <button class="open-button" onclick="openForm()">Contact</button>
 </nav>
@@ -50,12 +49,13 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		<br>
 		<br>
 			<form class="form-popup" action="/idea" method="POST">
-					<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
-					<br>
-					<br>
-					<textarea class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
-					<br>
-					<br>
+					<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName" required>
+					<br><br>
+					<textarea rows="4" cols="20" class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" required></textarea>
+					<br><br>
+					<!-- Enter email if you want to know if your idea has been approved: (Optional) -->
+					<input class="hide" type="email" name="em" placeholder="Enter email here..." id="em2">
+					<br><br>
 					<button class="hide" id="button2">Submit</button>
 					<button class="hide" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
