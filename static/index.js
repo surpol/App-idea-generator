@@ -19,7 +19,7 @@ function onButtonClick(){
 function retrieve(){
 
 	const appIdea = document.querySelector("#appIdea");
-	var counter = Math.floor(Math.random() * 43); //number of docs in database
+	var counter = Math.floor(Math.random() * 47); //number of docs in database
 	var docRef = db.collection("myIdeas").doc(counter.toString());
 	docRef.get().then(function(doc) {
 		if (doc.exists) {
