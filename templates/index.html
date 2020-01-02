@@ -9,10 +9,13 @@
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
-	<link rel="stylesheet" href="dist/upvotejs/upvotejs.css">
+
+
 	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
 	<script src="{{url_for('static', filename='index.js')}}"></script>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+
 
 </head>
 
@@ -22,7 +25,7 @@
 <div id="index-height" class="jumbotron d-none d-sm-block">
 	<h1><span class="typing"></span></h1>
 </div>
-ƒs
+
 <nav class="navbar fixed-top">
   <button class="open-button" onclick="openForm()">Contact</button>
 </nav>
@@ -38,25 +41,35 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 <div id="main" class="container">
 	<div class="container" id="ids">
 		<p id="appIdea"></p>
-		
-		
+		<!-- UPVOTE BUTTON -->
+		<div id="the-id">
+			<button class="hide" id="uparrow"><i class="fa fa-arrow-up"></i></button>
+			<span class="hide" style="color: white; font-size:24px" id="counterUp">0</span>
+ 		</div>
 	</div>
 	<div style= "text-align:center;">
 		<button id="getIdea" class="button" onclick="retrieve()"><b>Get Idea</b></button>
+			<!-- <div id="the-id">
+				<button class="hide" id="uparrow"><i class="fa fa-arrow-up"></i></button>
+				<span class="hide" style="color: white; font-size:24px" id="counterUp">0</span>
+ 			</div> -->
+ 			<script type="text/javascript">
+ 				document.getElementById("uparrow").addEventListener("click", plusOne);
+ 			</script>
 	</div>
 
 	<div style= "text-align: center;">
 		<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
 		<br>
 		<br>
-			<form class="form-popup" action="/idea" method="POST">
+			<form class="form-popup" id="giveIdea" action="/idea" method="POST">
 					<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
 					<br>
 					<br>
 					<textarea class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
 					<br>
 					<br>
-					<button class="hide" id="button2">Submit</button>
+					<button class="hide" id="button2" onclick="return empty()">Submit</button>
 					<button class="hide" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
 	</div>
@@ -64,8 +77,9 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 	
 
 </div>
-<footer>
-	<div class="col s12 heading">
+
+<!-- <footer>
+	<div class="col s12 heading"> -->
 		<form class="form-popup" action="/send" method="POST">
 			<input class="hide" type="name" name="name" placeholder="Enter Name" id="name" required/>
 			<input class="hide" type="email" name="email" placeholder="Your Email" id="email" required/>
@@ -75,9 +89,9 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			<button class="hide" type="submit" name="submit" class="btn" id="button3">Submit</button>
 			<button class="hide" type="reset" class="btn" id="button4">Reset</button>
 		</form>
-	</div>
+<!-- 	</div>
 
-</footer>
+</footer> -->
 	<script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 

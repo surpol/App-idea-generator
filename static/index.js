@@ -1,3 +1,5 @@
+//equal to counter in retrieve and passes down to plusOne
+var counterGlobal;
 
 // For give and get idea buttons
 function onButtonClick(){
@@ -15,19 +17,47 @@ function onButtonClick(){
 	}
 }
 
+//no input entered
+function empty(){
+	var x;
+	var y;
+	x = document.getElementById("ideaInput").value;
+	y = document.getElementById("appName").value;
+	if (x == "" && y =="") {
+		alert("You didn't enter an idea and app name");
+        return false;
+	}
+    else if (x == "") {
+        alert("You didn't enter an idea");
+        return false;
+    }
+    else if (y==""){
+    	alert("You didn't enter an app name");
+        return false;
+    };
+}
+
 // Gets random app from database
 function retrieve(){
-
 	const appIdea = document.querySelector("#appIdea");
-	var counter = Math.floor(Math.random() * 47); //number of docs in database
+	const counterUp = document.querySelector("#counterUp");
+	var counter = Math.floor(Math.random() * 56); //number of docs in database
+	counterGlobal = counter;
 	var docRef = db.collection("myIdeas").doc(counter.toString());
 	docRef.get().then(function(doc) {
 		if (doc.exists) {
-			console.log("counter " + counter);
+			console.log("counter: " + counter);
 			appIdea.innerHTML = "<div align='center' class ='appIdea' id='apps'><p><b> App: " + doc.data().Idea + "<br><br>" + doc.data().Description + "</b></p></div>";
 				document.getElementById('apps').style.fontFamily = "Courier New";
 				document.getElementById('apps').style.marginBottom = "3%";
 				document.getElementById('apps').style.color = "white";
+				//shows upArrow
+				document.getElementById('uparrow').className="show";
+				document.getElementById('counterUp').className="show";
+				// initializing arrow color and count
+				counterUp.innerHTML = doc.data().upvote;
+				uparrow.style.color = "white";
+			
 		} else {
 			// doc.data() will be undefined in this case
 			console.log("No such document!");
@@ -35,6 +65,57 @@ function retrieve(){
 	}).catch(function(error) {
 			console.log("Error getting document:", error);
 	});
+
+}
+
+//adding one for a click to up arrow and if double clicked goes back to original count
+function plusOne(){
+	const counterUp = document.querySelector("#counterUp");
+	if (uparrow.style.color != "yellow"){
+		for (const btn of document.querySelectorAll('#uparrow')) {
+		  	var docRef = db.collection("myIdeas").doc(counterGlobal.toString());
+			docRef.get().then(function(doc) {
+			if (doc.exists) {
+				console.log("counterGlobal: " + counterGlobal);
+				docRef.update({
+					upvote: doc.data().upvote + 1
+				})
+				counterUp.innerHTML = doc.data().upvote + 1;
+				uparrow.style.color = "yellow";
+			}
+		else {
+				// doc.data() will be undefined in this case
+				console.log("No such document!");
+			}
+		}).catch(function(error) {
+				console.log("Error getting document:", error);
+		});
+		    
+		}
+	}
+	//re-clicking up arrow
+	else{
+		for (const btn of document.querySelectorAll('#uparrow')) {
+	  	var docRef = db.collection("myIdeas").doc(counterGlobal.toString());
+		docRef.get().then(function(doc) {
+		if (doc.exists) {
+			console.log("counterGlobal2: " + counterGlobal);
+			docRef.update({
+				upvote: doc.data().upvote - 1
+			})
+			counterUp.innerHTML = doc.data().upvote - 1;
+			uparrow.style.color = "white";
+
+		}
+		else {
+				// doc.data() will be undefined in this case
+				console.log("No such document!");
+			}
+		}).catch(function(error) {
+				console.log("Error getting document:", error);
+		});
+		}
+	}
 }
 
 // For contact form 
