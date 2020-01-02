@@ -29,14 +29,6 @@
 	border: 2px solid white;
 } /* Blue */
 
- /* #dual-button div{
-	
-	background-color: #fffff;
-	margin: 115px;
-	font-family: "Courier New";
-	text-align: center;
-}
-*/
 input[type="idea"]
 {
     font-family: "Courier New";
@@ -87,14 +79,14 @@ input[type="text"]
 	text-align: center;
 }
 
-.contactButton {
+/*.contactButton {
 	text-align: center;
 	color: white;
 	font-family: "Courier New";
 	font-weight: bold;
 	padding-bottom: 10px;
-}
-
+}*/
+/*contact form button*/
 .open-button{
 	font-family:"Courier New";
 	border: 0px;
@@ -130,7 +122,7 @@ input[type="text"]
 .form-popup{
 	text-align: center;
 	width: 100%;
-	padding-bottom: 4%;
+	padding-bottom: 8%;
 }
 @media only screen and (max-width:415px){
 	.form-popup{
@@ -138,6 +130,10 @@ input[type="text"]
 		width: 100%;
 		padding-bottom: 17%;
 	}
+/*	#giveIdea{
+		padding-bottom: 0px;
+	}*/
+	
 }
 #copyright{
 	text-align: center;
@@ -182,3 +178,26 @@ html, body {
 	color: white;
 	padding: 5px;
 }
+#uparrow{
+	background-color: transparent;
+	color: white;
+	border: none;
+	outline: none;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-right: 8px;
+}
+#the-id{
+	position: relative;
+	text-align: center;
+	margin-bottom: 2%;
+}
+/*@media only screen and (min-width:576px){
+	#the-id{
+		text-align: center;
+		position: relative;
+	}
+}*/
+
+
