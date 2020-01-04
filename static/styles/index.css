@@ -5,10 +5,10 @@
  	}
 }*/
 
-*{
+/**{
 	padding: 0px;
 	margin:0px;
-}
+}*/
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -130,7 +130,7 @@ input[type="text"]
 .form-popup{
 	text-align: center;
 	width: 100%;
-	padding-bottom: 4%;
+	padding-bottom: 8%;
 }
 @media only screen and (max-width:415px){
 	.form-popup{

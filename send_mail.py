@@ -26,13 +26,10 @@ def send():
 	if request.method == 'POST':
 		name = request.form['name']
 		email = request.form['email']
-<<<<<<< HEAD
 		feedback = request.form['feedback']
 		msg = Message(sender=email, recipients=['namskek2@gmail.com', 'suryapolina2@gmail.com'], body=feedback, subject=name)
-=======
 		feedback = "Sent by: " + email + "\n" + "Feedback: " + request.form['feedback']
-		msg = Message(sender=email, recipients=['email', 'email'], body=feedback, subject=name)
->>>>>>> e4a4feee81a1f08e2da57be88c51d6334361a090
+		msg = Message(sender=email, recipients=['suryapolina2@gmail.com', 'namskek2@gmail.com'], body=feedback, subject=name)
 		mail.send(msg)
 		return render_template('feedbackMessage.html', name=name)
 	else: 
@@ -41,15 +38,12 @@ def send():
 @app.route('/idea', methods=['GET','POST'])
 def idea():
 	if request.method == 'POST':
-		appName = requrest.form['appName']
+		appName = request.form['appName']
 		idea = request.form['idea']
-<<<<<<< HEAD
 		msg = Message(sender='namskek2@gmail.com', recipients=['namskek2@gmail.com', 'suryapolina2@gmail.com'],body=idea, subject='New Idea Submission')
-=======
 		ideaEmail = request.form['ideaEmail']
 		submission = "Sent by: " + ideaEmail + "\n" + "App Name: " + appName + "\n" + "Idea Description: " + idea
-		msg = Message(sender='namskek2@gmail.com', recipients=['email', 'email'],body=submission, subject='New Idea Submission')
->>>>>>> e4a4feee81a1f08e2da57be88c51d6334361a090
+		msg = Message(sender='namskek2@gmail.com', recipients=['namskek2@gmail.com', 'suryapolina2@gmail.com'],body=submission, subject='New Idea Submission')
 		mail.send(msg)
 		return render_template('ideaMessage.html')
 	else:
