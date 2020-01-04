@@ -22,7 +22,7 @@ def send():
 	if request.method == 'POST':
 		name = request.form['name']
 		email = request.form['email']
-		feedback = request.form['feedback']
+		feedback = "Sent by: " + email + "\n" + "Feedback: " + request.form['feedback']
 		msg = Message(sender=email, recipients=['email', 'email'], body=feedback, subject=name)
 		mail.send(msg)
 		return render_template('feedbackMessage.html', name=name)
@@ -32,8 +32,11 @@ def send():
 @app.route('/idea', methods=['GET','POST'])
 def idea():
 	if request.method == 'POST':
+		appName = requrest.form['appName']
 		idea = request.form['idea']
-		msg = Message(sender='namskek2@gmail.com', recipients=['email', 'email'],body=idea, subject='New Idea Submission')
+		ideaEmail = request.form['ideaEmail']
+		submission = "Sent by: " + ideaEmail + "\n" + "App Name: " + appName + "\n" + "Idea Description: " + idea
+		msg = Message(sender='namskek2@gmail.com', recipients=['email', 'email'],body=submission, subject='New Idea Submission')
 		mail.send(msg)
 		return render_template('ideaMessage.html')
 	else:
