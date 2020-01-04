@@ -138,13 +138,6 @@ input[type="text"]
 		width: 100%;
 		padding-bottom: 17%;
 	}
-<<<<<<< HEAD
-	#giveIdea{
-		padding-bottom: 0px;
-	}
-	
-=======
->>>>>>> 56d861415499c2dbcb2b136d10a144ff569ce73b
 }
 #copyright{
 	text-align: center;
@@ -205,6 +198,7 @@ html, body {
 	margin-bottom: 2%;
 }
 #optional{
+	padding-top: 2%;
 	font-family: "Courier New";
 	color: white;
 }

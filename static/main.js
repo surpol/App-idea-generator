@@ -4,16 +4,16 @@ var counterGlobal;
 // For give and get idea buttons
 function onButtonClick(){
 	if(document.getElementById('appName').className == "hide"){
-		document.getElementById('userEmail').className="show";
 		document.getElementById('optional').className="show";
+		document.getElementById('userEmail').className="show";
 		document.getElementById('appName').className="show";
 		document.getElementById('ideaInput').className="show";
 		document.getElementById('button2').className="show";
 		document.getElementById('reset1').className="show";
 	}
 	else{
-		document.getElementById('userEmail').className="hide";
 		document.getElementById('optional').className="hide";
+		document.getElementById('userEmail').className="hide";
 		document.getElementById('appName').className="hide";
 		document.getElementById('ideaInput').className="hide";
 		document.getElementById('button2').className="hide";
@@ -45,7 +45,7 @@ function empty(){
 function retrieve(){
 	const appIdea = document.querySelector("#appIdea");
 	const counterUp = document.querySelector("#counterUp");
-	var counter = Math.floor(Math.random() * 58); //number of docs in database
+	var counter = Math.floor(Math.random() * 56); //number of docs in database
 	counterGlobal = counter;
 	var docRef = db.collection("myIdeas").doc(counter.toString());
 	docRef.get().then(function(doc) {

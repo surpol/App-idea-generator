@@ -12,7 +12,7 @@
 
 
 	<script src="{{url_for('static', filename='typed.min.js')}}"></script>
-	<script src="{{url_for('static', filename='index.js')}}"></script>
+	<script src="{{url_for('static', filename='main.js')}}"></script>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 </head>
@@ -58,9 +58,9 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 
 	<div style= "text-align: center;">
 		<button class="button" onclick="onButtonClick()"><b>Give Idea</b></button>
-		<br>
-		<br>
-			<form class="form-popup" id="giveIdea" action="/idea" method="POST">
+		<!-- <br> -->
+<!-- 		<br>
+ -->			<form class="form-popup" id="giveIdea" action="/idea" method="POST">
 					<p class="hide" id="optional">Enter your email to receive an update on the approval of your idea (Optional)</p>
 					<input class="hide" type="email" name="ideaEmail" placeholder="Enter email..." id="userEmail">
 					<br><br>
@@ -73,7 +73,6 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 			</form>
 	</div>
 </div>
-
 
 </div>
 
