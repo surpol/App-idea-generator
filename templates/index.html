@@ -63,12 +63,13 @@ var typed = new Typed('.typing', {strings: ["Need an Idea?", "Give an Idea", "Cr
 		<br>
 		<br>
 			<form class="form-popup" id="giveIdea" action="/idea" method="POST">
+					<p class="hide" id="optional">Enter your email to receive an update on the approval of your idea (Optional)</p>
+					<input class="hide" type="email" name="ideaEmail" placeholder="Enter email..." id="userEmail">
+					<br><br>
 					<input class="hide" type="idea" name="appname" placeholder="Enter app name..." id="appName">
-					<br>
-					<br>
-					<textarea class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
-					<br>
-					<br>
+					<br><br>
+					<textarea height="300px" class="hide" type="userIdea" name='idea' placeholder="Enter idea here..." id="ideaInput" value="" ></textarea>
+					<br><br>
 					<button class="hide" id="button2" onclick="return empty()">Submit</button>
 					<button class="hide" type="reset" class="btn" id="reset1">Reset</button>
 			</form>
