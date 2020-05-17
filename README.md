@@ -1,3 +1,3 @@
 # IdeasZap
-CS Project Idea Generator
+App Idea Generator
 www.ideaszap.com
